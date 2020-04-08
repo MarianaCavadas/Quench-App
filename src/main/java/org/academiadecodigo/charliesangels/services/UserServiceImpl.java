@@ -1,34 +1,48 @@
 package org.academiadecodigo.charliesangels.services;
 
+import org.academiadecodigo.charliesangels.dao.UserDao;
+import org.academiadecodigo.charliesangels.exception.UserNotFoundException;
 import org.academiadecodigo.charliesangels.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
+@Service
 public class UserServiceImpl implements UserService{
 
-    private Map<String, User> users = new ConcurrentHashMap<>();
+    private UserDao userDao;
 
-    public Map<String, User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Map<String, User> users) {
-        this.users = users;
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
-    public User getUser(String username) {
-        return users.get(username);
+    public User getUser(Integer id) {
+        return userDao.findById(id);
+    }
+
+    @Transactional
+    @Override
+    public User saveUser(User user) {
+        return userDao.saveOrUpdate(user);
+    }
+
+    @Transactional
+    @Override
+    public void deleteUser(Integer id) throws UserNotFoundException {
+        User user = userDao.findById(id);
+
+        if(user == null) {
+            throw new UserNotFoundException();
+        }
+
+        userDao.delete(id);
     }
 
     @Override
-    public void addUser(User user) {
-
-    }
-
-    @Override
-    public void deleteUser(User user) {
-
+    public User getUserByUsername(String username) {
+        return userDao.findByUsername(username);
     }
 }

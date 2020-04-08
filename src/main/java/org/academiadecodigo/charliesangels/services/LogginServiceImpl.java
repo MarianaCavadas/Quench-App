@@ -1,10 +1,14 @@
 package org.academiadecodigo.charliesangels.services;
 
 import org.academiadecodigo.charliesangels.models.User;
+import org.academiadecodigo.charliesangels.utils.Security;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LogginServiceImpl implements LogginService{
 
     private UserService userService;
+    private User accessingUser;
 
     /**
      * Get userService
@@ -23,15 +27,21 @@ public class LogginServiceImpl implements LogginService{
         this.userService = userService;
     }
 
-    /**
-     *
-     * @param username
-     * @param password
-     * @return true if authenticates
-     */
+
     @Override
     public boolean authenticate(String username, String password) {
-        return false;
+
+        User user = userService.getUserByUsername(username);
+
+        if(user == null) {
+            return false;
+        }
+        if(!user.getPassword().equals(Security.getHash(password))) {
+            return false;
+        }
+
+        accessingUser = user;
+        return true;
     }
 
     /**
@@ -41,6 +51,6 @@ public class LogginServiceImpl implements LogginService{
      */
     @Override
     public User getAccessingUser() {
-        return null;
+        return accessingUser;
     }
 }
