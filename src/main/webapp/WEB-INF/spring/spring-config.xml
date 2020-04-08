@@ -13,7 +13,6 @@
     <!-- Base package to search for spring beans -->
     <context:component-scan base-package="org.academiadecodigo.charliesangels"/>
     <import resource="presentation.xml"/>
-    <import resource="persistence/persistence-unit.xml"/>
-    <import resource="persistence/persistence-prod.xml"/>
+    <import resource="persistence.xml"/>
 
 </beans>
