@@ -1,5 +1,7 @@
 package org.academiadecodigo.charliesangels.services;
 
+import org.academiadecodigo.charliesangels.models.User;
+
 public interface LogginService {
 
     /**

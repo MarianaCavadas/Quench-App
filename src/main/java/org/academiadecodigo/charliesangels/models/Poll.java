@@ -1,12 +1,20 @@
 package org.academiadecodigo.charliesangels.models;
 
-public class Poll {
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "poll")
+public class Poll extends AbstractModel{
     private String title;
     private String message;
     private String photo;
     private int minimumVotes;
     private int yes;
     private int no;
+
+    @OneToOne
     private User user;
 
     public String getTitle() {

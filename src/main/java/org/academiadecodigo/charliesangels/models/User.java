@@ -1,10 +1,19 @@
 package org.academiadecodigo.charliesangels.models;
 
-public class User {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class User extends AbstractModel{
 
     private String userName;
     private String email;
     private String password;
+
+    @OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Poll poll;
 
     public String getUserName() {

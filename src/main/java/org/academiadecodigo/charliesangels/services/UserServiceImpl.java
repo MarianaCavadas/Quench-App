@@ -1,6 +1,8 @@
 package org.academiadecodigo.charliesangels.services;
 
-import java.util.HashMap;
+import org.academiadecodigo.charliesangels.models.User;
+
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserServiceImpl implements UserService{
