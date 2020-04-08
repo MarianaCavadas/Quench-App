@@ -3,14 +3,22 @@ package org.academiadecodigo.charliesangels.models;
 import org.academiadecodigo.charliesangels.utils.Security;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "user")
 public class User extends AbstractModel{
 
+    @NotNull(message = "username is mandatory")
+    @NotBlank(message = "username is mandatory")
+    @Size(min = 3, max = 36)
     @Column(unique=true)
     private String username;
+
+    @Email
     private String email;
+
+    @Size(min = 8)
     private String password;
 
     @OneToOne(mappedBy = "user", cascade = {CascadeType.ALL}, orphanRemoval = true)

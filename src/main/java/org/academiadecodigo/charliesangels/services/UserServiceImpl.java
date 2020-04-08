@@ -2,6 +2,7 @@ package org.academiadecodigo.charliesangels.services;
 
 import org.academiadecodigo.charliesangels.dao.UserDao;
 import org.academiadecodigo.charliesangels.exception.UserNotFoundException;
+import org.academiadecodigo.charliesangels.models.Poll;
 import org.academiadecodigo.charliesangels.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUserByUsername(String username) {
         return userDao.findByUsername(username);
+    }
+
+    @Override
+    public Integer getPollId(Integer id) {
+        return userDao.findById(id).getPoll().getId();
     }
 }

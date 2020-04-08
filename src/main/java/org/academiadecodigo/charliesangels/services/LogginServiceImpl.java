@@ -2,6 +2,7 @@ package org.academiadecodigo.charliesangels.services;
 
 import org.academiadecodigo.charliesangels.models.User;
 import org.academiadecodigo.charliesangels.utils.Security;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +24,7 @@ public class LogginServiceImpl implements LogginService{
      * set the userService
      * @param userService
      */
+    @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
