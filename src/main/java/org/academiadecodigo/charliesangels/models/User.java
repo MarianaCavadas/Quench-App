@@ -47,4 +47,28 @@ public class User extends AbstractModel{
     public void setPoll(Poll poll) {
         this.poll = poll;
     }
+
+    /**
+     *
+     * @param poll
+     */
+    public void addPoll(Poll poll) {
+        poll.setUser(this);
+    }
+
+    /**
+     * Deletes the poll
+     */
+    public void deletePoll() {
+        this.poll = null;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", poll=" + poll +
+                '}';
+    }
 }

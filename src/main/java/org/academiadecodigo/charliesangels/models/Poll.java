@@ -72,4 +72,16 @@ public class Poll extends AbstractModel{
     public void setNo(int no) {
         this.no = no;
     }
+
+    @Override
+    public String toString() {
+        return "Poll{" +
+                "title='" + title + '\'' +
+                ", message='" + message + '\'' +
+                ", minimumVotes=" + minimumVotes +
+                ", yes=" + yes +
+                ", no=" + no +
+                ", user=" + user +
+                '}';
+    }
 }
