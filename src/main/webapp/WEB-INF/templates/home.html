@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="home.css" />
+    <link rel="stylesheet" th:href="@{/home.css}" />
+    <!--<link rel="stylesheet" type="text/css" href="home.css"> -->
     <thymeleaf th:replace="header :: header"/>
 
 
