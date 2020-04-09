@@ -3,6 +3,7 @@ package org.academiadecodigo.charliesangels.models;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -16,7 +17,7 @@ public class Poll extends AbstractModel{
     private String message;
     private String photo;
 
-    @Size(min = 5)
+    @Min(5)
     private int minimumVotes;
     private int yes;
     private int no;
