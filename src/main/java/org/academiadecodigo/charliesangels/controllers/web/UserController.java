@@ -8,19 +8,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@RequestMapping("/user")
+@RequestMapping("")
 @Controller
 public class UserController {
 
-    UserService userService;
+    private UserService userService;
 
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/user")
-    public String showUser(@PathVariable Integer id, Model model) {
+    //@RequestMapping(method = RequestMethod.GET, path = "/user")
+    /*public String showUser(@PathVariable Integer id, Model model) {
+        return "home";
+    }*/
+
+    @RequestMapping(method = RequestMethod.GET, path = "")
+    public String showHome() {
         return "home";
     }
 }
