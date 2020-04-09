@@ -66,7 +66,7 @@ public class UserController {
 
     @RequestMapping (method = RequestMethod.POST, path = {"/", ""}, params = "action=cancel")
     public String cancelSavePoll() {
-        return "redirect:/home/";
+        return "redirect:/home";
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/poll/{id}")
@@ -95,7 +95,7 @@ public class UserController {
         Integer newId = id++;
 
         if (pollService.getPoll(newId) == null) {
-            return "redirect:/home/";
+            return "redirect:/home";
         }
 
         return "redirect:/poll/" + newId;
@@ -135,27 +135,27 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, path = "/login")
     public String login() {
 
-        return "loginform";
+        return "login";
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/", ""}, params = "acation=save")
     public String authenticate(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "loginform";
+            return "login";
         }
 
         User savedUser = userService.getUserByUsername(user.getUsername());
 
         if (savedUser == null) {
-            return "loginform";
+            return "login";
         }
 
         String password = savedUser.getPassword();
         String username = savedUser.getUsername();
 
         if (!logginService.authenticate(username, password)) {
-            return "loginform";
+            return "login";
         }
 
         return "redirect:/user/" + savedUser.getId();
