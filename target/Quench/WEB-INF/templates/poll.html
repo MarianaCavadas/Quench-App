@@ -4,8 +4,94 @@
     <thymeleaf th:replace="header :: header"/>
 </head>
 <body>
+<style>
+
+    body {
+        background-color: black
+    }
+    .container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+
+    .title {
+        color: #CEF0D4;
+        font-family: 'Rouge Script', cursive;
+        font-size: 100px;
+        font-weight: normal;
+        line-height: 48px;
+        margin: 50px 0 25px;
+        text-align: center;
+        text-shadow: 1px 1px 2px #a7e8f8;
+    }
+    .logo {
+        display: block;
+        margin-left:auto;
+        margin-right: auto;
+        margin-block-start: 25px;
+        margin-block-end: 25px;
+        border-radius: 50%;
+        width: 60%;
+    }
+
+    .form-group {
+        display:inline-flex;
+        margin-left: auto;
+        margin-right: auto;
+        margin-block-start: 120px;
+        align-content: center;
+        text-emphasis-color: black;
+    }
+
+    .info {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-block-start: 50px;
+        margin-block-end: 30px;
+        width: 40%;
+        color:aqua;
+        text-size-adjust: 20%;
+        font-family: 'Rouge Script', cursive;
+    }
+</style>
+
+
 <div class="container">
 
     <div th:replace="action :: action"></div>
 
-    <h2>Customer Details</h2>
+    <div class="title">
+
+        <h1 style="font-size: 80px;"> What should I do? </h1>
+
+
+    </div>
+
+    <div class="logo">
+        <img src="https://www.setaswall.com/wp-content/uploads/2017/07/Elemental-Wallpapers-25-2880x1800-768x480.jpg" alt="Responsive image" width="400" height="200">
+
+    </div>
+    <div class="info">
+        <p style="text-align:justify; font-size: 18px;">I can't stand his "flanela" shirts anymore!</p>
+    </div>
+    <div class="info">
+        <p style="text-align:justify; font-size: 18px;">Really, those things are like everywhere, even in my underwear drawer! And I think he has
+            an affair because he keeps talking about how much he loves some baby called Yoda!</p>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-danger btn-lg" style="color:black; background-color:#e6ffcc;">End It</button>
+        <button type="submit" class="btn btn-danger btn-lg" style="color:black; background-color:#e6ffcc; position: relative; left: 10px;">Give It A Chance</button>
+
+        <button type="submit" class="btn btn-danger btn-lg" style="color:black; background-color:#e6ffcc; position: absolute; left: 1060px;">Next Poll</button>
+        <button type="submit" class="btn btn-danger btn-lg" style="color:black; background-color:#e6ffcc; position: absolute; left: 1200px;">Home</button>
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>
