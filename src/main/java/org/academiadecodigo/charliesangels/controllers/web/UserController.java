@@ -70,7 +70,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/poll/1")
-    public String showPoll(@PathVariable Integer id, Model model){
+    public String showPoll(){
         /*Poll poll = pollService.getPoll(id);
 
         if (poll == null) {
@@ -86,6 +86,7 @@ public class UserController {
         return "poll2";
     }
 
+    @RequestMapping(method = RequestMethod.GET, path ="/poll/3")
     public String showPollThree() {
         return "poll3";
     }
