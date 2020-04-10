@@ -69,16 +69,25 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/poll/{id}")
+    @RequestMapping(method = RequestMethod.GET, path = "/poll/1")
     public String showPoll(@PathVariable Integer id, Model model){
-        Poll poll = pollService.getPoll(id);
+        /*Poll poll = pollService.getPoll(id);
 
         if (poll == null) {
             return "redirect:/poll/" + id + "/next";
         }
 
-        model.addAttribute("poll", poll);
+        model.addAttribute("poll", poll);*/
         return "poll";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/poll/2")
+    public String showPollTwo() {
+        return "poll2";
+    }
+
+    public String showPollThree() {
+        return "poll3";
     }
 
 
