@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <thymeleaf th:replace="header :: header"/>
+    <!-- <thymeleaf th:replace="header :: header"/> -->
+
+    <title>Quench</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" modelType="text/css"/>
+    <script modelType="application/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script modelType="application/javascript" async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        body {
+            background-image: url("http://belkisclarke.com/wp-content/uploads/bb-plugin/cache/broken-glass-landscape.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+        }
+        .form-buttons {
+            display:inline-block;
+            margin-left: auto;
+            margin-right: 150px;
+            margin-block-start: 30px;
+            margin-top: 20px;
+            align-content: center;
+            text-emphasis-color: black;
+        }
+        .title {
+            color: #CEF0D4;
+            font-family: 'Rouge Script', cursive;
+            font-size: 150px;
+            font-weight: normal;
+            line-height: 48px;
+            margin: 100px 0 25px;
+            text-align:left;
+            text-shadow: 1px 1px 2px #a7e8f8;
+        }
+
+        .form-group {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-block-start: 50px;
+            width: 60%;
+            color:aqua;
+            text-size-adjust: 20%;
+            font-family: 'Rouge Script', cursive;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
 
-<style>
-    body {
-        background-image: url("pollbackground.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
 
-    .container {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-    }
-    .form-buttons {
-        display:inline-block;
-        margin-left: auto;
-        margin-right: 150px;
-        margin-block-start: 30px;
-        margin-top: 20px;
-        align-content: center;
-        text-emphasis-color: black;
-    }
-    .title {
-        color: #CEF0D4;
-        font-family: 'Rouge Script', cursive;
-        font-size: 150px;
-        font-weight: normal;
-        line-height: 48px;
-        margin: 100px 0 25px;
-        text-align:left;
-        text-shadow: 1px 1px 2px #a7e8f8;
-    }
-
-    .form-group {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-block-start: 50px;
-        width: 60%;
-        color:aqua;
-        text-size-adjust: 20%;
-        font-family: 'Rouge Script', cursive;
-        font-size: 18px;
-    }
-</style>
 
 
 <div class="container">
 
 
     <div class = "title">
-        <h2 style="font-size: 100px;">Tell us your problem!</h2>
+        <h2>Tell us your problem!</h2>
     </div>
     <div class="row">
         <div class="col-sm-8">
-            <form class="form-horizontal" th:object="${poll}" th:action="@{'/newpoll'}" method="post">
+            <form class="form-horizontal" th:object="${poll}" th:action="@{'/pollform'}" method="post">
 
                 <!-- since we are using same form for add and update,
                   we need to bind id input field to customer object
@@ -86,7 +97,7 @@
                         Message error message
                     </span>
                 </div>
-                <div class="form-group" th:classappend="${#fields.hasErrors('minimunVotes')} ? has-error">
+                <div class="form-group" th:classappend="${#fields.hasErrors('minimumVotes')} ? has-error">
                     <label class="control-label">How many opinions do you want:</label>
                 </div>
                 <div class="col-sm-10">

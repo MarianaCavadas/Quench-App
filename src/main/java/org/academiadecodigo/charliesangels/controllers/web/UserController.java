@@ -50,7 +50,7 @@ public class UserController {
         return "pollform";
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = {"/", ""}, params = "action=save")
+    @RequestMapping(method = RequestMethod.POST, path = {"/pollform"}, params = "action=save")
     public String savePoll(@Valid @ModelAttribute("poll") Poll poll, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
@@ -119,7 +119,7 @@ public class UserController {
         return "adduser";
     }
 
-    @RequestMapping(method = RequestMethod.POST, path ={"/", ""}, params = "action=save")
+    @RequestMapping(method = RequestMethod.POST, path ={"/saveuser"}, params = "action=save")
     public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "adduser";
@@ -138,7 +138,7 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = {"/", ""}, params = "acation=save")
+    @RequestMapping(method = RequestMethod.POST, path = {"/authenticate"}, params = "action=save")
     public String authenticate(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
